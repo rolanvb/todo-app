@@ -76,12 +76,6 @@ main {
         margin-bottom: 2rem;
     }
 
-    label {
-        font-size: 1rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-    }
-
     input#taskName {
         border: 1px solid #ddd;
         border-radius: 5px;
