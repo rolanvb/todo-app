@@ -4,7 +4,7 @@
 
 
 <header>
-    <h1>
+    <h1 class="pageTitle">
         To Do App
     </h1>
 </header>
@@ -13,12 +13,15 @@
 
 <style>
     header {
-        flex: auto;
-        justify-content: center;
-        background-color: #333;
+        background-color: #2a31fb;
         color: white;
         padding: 1rem;
         margin: none;
+        margin-bottom: 1rem;
         width: 100%;
+    }
+
+    .pageTitle {
+        font-weight: bolder;
     }
 </style>

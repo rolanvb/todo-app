@@ -29,7 +29,7 @@
 </script>
 
 <section>
-    <h2>Add Task</h2>
+    <h2 class="sectionTitle">Add Task</h2>
     <form on:submit={addTask}>
         <label for="taskName">Task Name</label>
         <input type="text" id="taskName" name="taskName" required>
@@ -38,7 +38,7 @@
 </section>
 
 <section>
-    <h2>Tasks</h2>
+    <h2 class="sectionTitle">Tasks</h2>
     <ul>
         {#each tasks as task, index}
             <li><button on:click={() => toggleTask(index)} class:done={task.done} class=task>{task.name}</button></li>
@@ -47,20 +47,38 @@
 </section>
 
 <style>
+    * {
+        margin: 4px;
+    }
+
+    button{
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+    }
+    li {
+        list-style-type: none;
+    }
+    .sectionTitle {
+        /* font-size: 1.5rem; */
+        font-weight: bold;
+    }
     .task {
-        padding: 0.5rem;
         margin: 0.5rem;
-        background-color: #f4f4f4;
         border-radius: 5px;
         list-style-type: none;
         
     }
     .task:hover {
-        background-color: #e9e9e9;
+        text-decoration: underline;
     }
-    .task:active {
+    /* .task:active {
         background-color: #d4d4d4;
-    }
+    } */
     .task.done {
         text-decoration: line-through;
     }
