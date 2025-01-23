@@ -5,7 +5,7 @@
 
     // Retrieve tasks from session storage on component mount
     onMount(() => {
-        const storedTasks = sessionStorage.getItem('tasks');
+        const storedTasks = localStorage.getItem('tasks');
         if (storedTasks) {
             tasks = JSON.parse(storedTasks);
         }
@@ -16,10 +16,15 @@
         event.preventDefault();
         const taskName = event.target.taskName.value;
         if (taskName) {
-            tasks = [...tasks, taskName];
-            sessionStorage.setItem('tasks', JSON.stringify(tasks));
+            tasks = [...tasks, { name: taskName, done: false }];
+            localStorage.setItem('tasks', JSON.stringify(tasks));
             event.target.reset();
         }
+    }
+
+    function toggleTask(index) {
+        tasks = tasks.map((task, i) => i === index ? { ...task, done: !task.done } : task);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 </script>
 
@@ -35,8 +40,28 @@
 <section>
     <h2>Tasks</h2>
     <ul>
-        {#each tasks as task}
-            <li>{task}</li>
+        {#each tasks as task, index}
+            <li><button on:click={() => toggleTask(index)} class:done={task.done} class=task>{task.name}</button></li>
         {/each}
     </ul>
 </section>
+
+<style>
+    .task {
+        padding: 0.5rem;
+        margin: 0.5rem;
+        background-color: #f4f4f4;
+        border-radius: 5px;
+        list-style-type: none;
+        
+    }
+    .task:hover {
+        background-color: #e9e9e9;
+    }
+    .task:active {
+        background-color: #d4d4d4;
+    }
+    .task.done {
+        text-decoration: line-through;
+    }
+</style>
