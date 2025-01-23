@@ -5,7 +5,7 @@
 
 <header>
     <h1 class="pageTitle">
-        Todo bien App
+        To Do App
     </h1>
 </header>
 
@@ -13,8 +13,8 @@
 
 <style>
     header {
-        background-color: var(--primary-color);
-        color: var(--secondary-color);
+        background-color: #3135b3;
+        color: #f9f9f9;
         padding: 1rem;
         margin: none;
         margin-bottom: 1rem;

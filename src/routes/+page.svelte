@@ -3,7 +3,7 @@
 
     let tasks = [];
 
-    // Retrieve tasks from session storage on component mount
+    // Retrieve tasks from local storage on component mount
     onMount(() => {
         const storedTasks = localStorage.getItem('tasks');
         if (storedTasks) {
@@ -11,7 +11,7 @@
         }
     });
 
-    // Function to handle form submission
+    // Function to handle task addition
     function addTask(event) {
         event.preventDefault();
         const taskName = event.target.taskName.value;
@@ -22,11 +22,13 @@
         }
     }
 
+    // Function to toggle task completion
     function toggleTask(index) {
         tasks = tasks.map((task, i) => i === index ? { ...task, done: !task.done } : task);
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 </script>
+
 <main>
     <section>
         <h2 class="sectionTitle">Add Task</h2>
@@ -48,16 +50,7 @@
 
 
 <style>
-    /* Reset and Base Styles */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-
-
-    main {
+main {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -127,7 +120,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: #f1f1f1;
+        background: whitesmoke;
         border-radius: 5px;
         margin-bottom: 0.5rem;
         padding: 10px;
