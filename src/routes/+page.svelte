@@ -3,9 +3,9 @@
 
     let tasks = [];
 
-    // Retrieve tasks from local storage on component mount
+    // Retrieve tasks from session storage on component mount
     onMount(() => {
-        const storedTasks = localStorage.getItem('tasks');
+        const storedTasks = sessionStorage.getItem('tasks');
         if (storedTasks) {
             tasks = JSON.parse(storedTasks);
         }
@@ -17,7 +17,7 @@
         const taskName = event.target.taskName.value;
         if (taskName) {
             tasks = [...tasks, { name: taskName, done: false }];
-            localStorage.setItem('tasks', JSON.stringify(tasks));
+            sessionStorage.setItem('tasks', JSON.stringify(tasks));
             event.target.reset();
         }
     }
@@ -25,7 +25,7 @@
     // Function to toggle task completion
     function toggleTask(index) {
         tasks = tasks.map((task, i) => i === index ? { ...task, done: !task.done } : task);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
+        sessionStorage.setItem('tasks', JSON.stringify(tasks));
     }
 </script>
 
@@ -41,9 +41,15 @@
     <section class="taskList">
         <h2 class="sectionTitle">Tasks</h2>
         <ul>
-            {#each tasks as task, index}
-                <li><button on:click={() => toggleTask(index)} class:done={task.done} class=task>{task.name}</button></li>
-            {/each}
+            {#if tasks.length === 0}
+                <p>No tasks added yet</p>
+            {:else}
+                {#each tasks as task, index}
+                    <li>
+                        <button on:click={() => toggleTask(index)} class:done={task.done} class=task>{task.name}</button>
+                    </li>
+                {/each}
+            {/if}
         </ul>
     </section>
 </main>
