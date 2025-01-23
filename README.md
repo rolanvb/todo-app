@@ -1,38 +1,48 @@
-# sv
+﻿
+# Todo App
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A simple todo application built using [SvelteKit](https://kit.svelte.dev/).
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+-   Add new tasks
+-   Mark tasks as completed
+-   Persist tasks using local storage
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Getting Started
 
-# create a new project in my-app
-npx sv create my-app
-```
+### Prerequisites
 
-## Developing
+-   [Node.js](https://nodejs.org/) (version 16 or later)
+-   [npm](https://www.npmjs.com/) (comes with Node.js)
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Installation
 
-```bash
-npm run dev
+1.  **Clone the repository**:
+    
+    `bash git clone [https://github.com/rolanvb/todo-app.git](https://github.com/rolanvb/todo-app.git)`
+    
+2.  **Navigate to the project directory**:
+    
+    `bash cd todo-app`
+    
+3.  **Install dependencies**:
+    
+	  `bash npm install`
+    
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+### Development
 
-## Building
+To start the development server:
 
-To create a production version of your app:
+`bash npm run dev`
 
-```bash
-npm run build
-```
 
-You can preview the production build with `npm run preview`.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+This will launch the app at [http://localhost:5173](http://localhost:5173). Any changes you make to the source files will be reflected in the browser.
+
+
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
