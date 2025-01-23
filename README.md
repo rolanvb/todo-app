@@ -13,7 +13,7 @@ A simple todo application built using [SvelteKit](https://kit.svelte.dev/).
 
 ### Prerequisites
 
--   [Node.js](https://nodejs.org/) (version 16 or later)
+-   [Node.js](https://nodejs.org/) (version 16 or later)
 -   [npm](https://www.npmjs.com/) (comes with Node.js)
 
 ### Installation
